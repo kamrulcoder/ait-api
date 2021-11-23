@@ -10,7 +10,4 @@ const ContactSchema = new Schema(
     { timestamps: true }
 );
 
-
-
-
 module.exports = model("Contact", ContactSchema);

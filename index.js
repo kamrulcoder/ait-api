@@ -24,6 +24,7 @@ const middleware = [
 
 const contactRouter = require("./routes/contacts")
 const userRouter = require("./routes/users")
+const regstrationRouter = require("./routes/registrations")
 
 /* ==========================
    all route import   start 
@@ -41,6 +42,7 @@ app.use(middleware)
 
 app.use("/contacts", contactRouter)
 app.use("/users", userRouter);
+app.use("/registration", regstrationRouter)
 
 
 app.get("/", (req, res) => {
