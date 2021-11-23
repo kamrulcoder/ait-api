@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
 // All Contacts 
 router.get("/", async (req, res) => {
     try {
-        const contacts = await Contact.find();
+        const contacts = await Contact.find().sort({ createdAt: -1 });
         res.status(200).json(contacts);
     } catch (err) {
         res.status(500).json(err);
