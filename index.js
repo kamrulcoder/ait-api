@@ -40,6 +40,7 @@ app.use(middleware)
 *============================ */
 
 app.use("/contacts", contactRouter)
+app.use("/users", userRouter);
 
 
 app.get("/", (req, res) => {
