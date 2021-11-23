@@ -66,18 +66,25 @@ router.get("/", async (req, res) => {
     }
 });
 
-
 //GET ALL USER
 router.get("/admin/:email", async (req, res) => {
-    const email = req.params.email;
+
     try {
-        const user = await User.findOne({
-            email: req.params.email
-        });
-        res.status(200).json(user);
+        const email = req.params.email;
+        const query = { email: email };
+
+        const user = await User.findOne(query);
+
+        let isAdmin = false;
+        if (user?.isAdmin === true) {
+            isAdmin = true;
+        }
+        res.json({ admin: isAdmin });
+
     } catch (err) {
         res.status(500).json(err);
     }
+
 });
 
 module.exports = router;
