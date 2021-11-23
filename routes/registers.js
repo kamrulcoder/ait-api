@@ -27,4 +27,26 @@ router.get("/", async (req, res) => {
 });
 
 
+//GET Check Register 
+router.get("/check/:email", async (req, res) => {
+
+    try {
+        const email = req.params.email;
+        const query = { email: email };
+
+        const user = await Register.findOne(query);
+
+        let status = false;
+        if (user?.email === email) {
+            status = true;
+        }
+        res.json({ status });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+});
+
+
 module.exports = router;

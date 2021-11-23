@@ -66,7 +66,7 @@ router.get("/", async (req, res) => {
     }
 });
 
-//GET ALL USER
+//GET Check Admin 
 router.get("/admin/:email", async (req, res) => {
 
     try {
